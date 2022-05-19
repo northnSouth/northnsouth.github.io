@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang='en-us-id'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>NorthnSouth</title>
+
+
+		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+		<link rel="manifest" href="favicons/site.webmanifest">
+		<link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#111111">
+		<link rel="shortcut icon" href="favicons/favicon.ico">
+		<meta name="msapplication-TileColor" content="#111111">
+		<meta name="msapplication-config" content="favicons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+
+
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel='preload' href='style.css' as='style'>
+        <link rel='stylesheet' href='style.css'>
+	    <script>
+			function vw(value) {
+				let screenWidth = window.innerWidth;
+				return value * (screenWidth / 100);
+			}
+
+			function vh(value) {
+				let screenHeight = window.innerHeight;
+				return value * (screenHeight / 100);
+			}
+		</script>
+		<script>
+			function cliffNeon() {
+				let cliffGrad = document.getElementById('cliff-grad');
+				let cliff = document.getElementById('cliff');
+
+				cliffGrad.addEventListener('mouseover', () => {
+					cliff.classList.add('cliffNeon');
+				});
+				cliffGrad.addEventListener('mouseout', () => {
+					cliff.classList.remove('cliffNeon');
+				});
+				cliff.addEventListener('mouseover', () => {
+					cliff.classList.add('cliffNeon');
+				});
+				cliff.addEventListener('mouseout', () => {
+					cliff.classList.remove('cliffNeon');
+				});
+			}
+		</script>
+		<script src='stars.js'></script>
+		<script src='rAFs-optimised.js'></script>
+		<script src='arrowDown.js'></script>
+		<!-- <script src='formValidation.js'></script> -->
+		<script>
+			function noemailContact() {
+				let container = document.getElementById("fp-emailMe-container");
+				document.getElementById("noemail-close").addEventListener("click", () => {
+					container.style.opacity = 0;
+					setTimeout(() => (container.style.visibility = "hidden"), 150);
+				});
+				document.getElementById("fp-contactme").addEventListener("click", () => {
+					container.style.visibility = "visible";
+					container.style.opacity = 1;
+				});
+				document.getElementById("mob-noemail-close").addEventListener("click", () => {
+					container.style.opacity = 0;
+					setTimeout(() => (container.style.visibility = "hidden"), 150);
+				});
+			}
+		</script>
+		<script>
+			window.onload = function main() {
+				stars();
+				arrowDown();
+				rAFs();
+				//emailButtons();
+				noemailContact();
+				cliffNeon();
+			}
+		</script>
+		<script src="https://kit.fontawesome.com/fb5e37d9d8.js" crossorigin="anonymous"></script>
+	</head>
+    <body>
+	<div id='first-page'>
+        <div id='stars'>
+			<div id='animation-container'>
+            	<canvas id='starsA'></canvas>
+				<img id='starsB' alt='stars' src='images/rasterStars.webp'></img>
+			</div>
+        </div>
+		<div id='comet-container-container'>
+			<div id='comet-container'>
+				<div id='comet'></div>
+			</div>
+		</div>
+		<div id='cliff-container'>
+			<div id='cliff-grad'></div>
+            <img id='cliff' src='images/cliff.webp' alt='cliff'>
+        </div>
+		<div id='slogan-fp'>
+			<p>Art,</p>
+			<p>Ease,</p>
+			<div><p id='aeAt'>and</p>&nbsp;<p>Tech.</p></div>
+		</div>
+		<div id='fp-center-flex'>
+			<img id='logoGrad' alt='logo' src='images/logoGradPP.webp'>
+            <a id='fp-contactme'>CONTACT ME</a>
+		</div>
+		<div id='fp-whoiam'>
+			<div id='myname'>
+				<p>North<span>,</span></p>
+			</div>
+			<div id='myroles'>
+				<p>UI/UX Designer;</p>
+				<p>Web Developer</p>
+			</div>
+		</div>
+		<div id='fp-scrolldown'>
+			<canvas id='sdwn1' class='downArrow'></canvas>
+			<canvas id='sdwn2' class='downArrow'></canvas>
+			<canvas id='sdwn3' class='downArrow'></canvas>
+		</div>
+		<div id='fp-emailMe-container'>
+			<form id='fp-emailMe' autocomplete='off' spellcheck='false'>
+				<div id='alt-contact'>
+					<p id='noemail-header'>Socials</p>
+					<div id='noemail-socials-container'>
+						<a target='_blank' id='github-contact' href='https://github.com/northnsouth' title='GitHub'><img alt='GitHub' src='images/github.png'></a>
+						<a target='_blank' id='insta-contact' href='https://www.instagram.com/aftitonf/' title='Instagram'><img alt='Instagram' src='images/instagram.png'></a>
+						<a target='_blank' id='twit-contact' href='https://twitter.com/aftitonf' title='Twitter'><img alt='Twitter' src='images/twitter.png'></a>
+					</div>
+					<p id='noemail-reachme'>For business inquiries and other professional matters, reach me at <span id='noemail-address'>aftitonf66@gmail.com</span></p>
+					<a id='noemail-close'>Close</a>
+				</div>
+				<div id='mob-noemail-close-cont'><a id='mob-noemail-close'>Close</a></div>
+				<!-- <div id='fp-emailMe-grid'>
+					<input type='text' id='emailFrom' required placeholder='Email Address'></input>
+					<input type='text' id='fromName' placeholder='Your Name'></input>
+					<input type='text' id='subject' placeholder='Title'></input>
+					<textarea id='message' name='message' required placeholder='Message'></textarea>
+					<p id='close-email'>Close</p>
+					<button type='button' id='send'>Send</button>
+				</div> -->
+			</form>
+		</div>
+		<!-- <div id='emailSent'>
+			<p><i class="fa-solid fa-check"></i>Email has been sent!</p>
+		</div> -->
+		<!-- <div id ='fp-mob-wiki-bg'></div> -->
+		<div id='nav-icon-container'>
+			<a id='home'><img alt='Home' src='images/homeicon.webp'></a>		
+			<a id='whatdoido' aria-label='What Do I Do?'>
+				<i aria-hidden='true' class='fa-solid fa-person-circle-question'></i>
+			</a>
+			<a id='whaticando' aria-label='What I Can Do?'>
+				<i aria-hidden='true' class='fa-solid fa-person-rays'></i>
+			</a>
+			<a id='socials' aria-label='Socials'>
+				<i aria-hidden='true' class='fa-solid fa-paper-plane'></i>
+			</a>
+		</div>
+	</div>
+    </body>
+</html>
